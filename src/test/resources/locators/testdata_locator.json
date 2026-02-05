@@ -1,0 +1,74 @@
+{
+  "login": {
+    "url": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+    "username": {
+      "selector": "//input[@name='username']",
+      "type": "input"
+    },
+    "password": {
+      "selector": "//input[@name='password']",
+      "type": "input"
+    },
+    "loginButton": {
+      "selector": "button[type='submit']",
+      "type": "button",
+      "text": "Login"
+    }
+  },
+
+  "dashboard": {
+    "dashboardHeader": {
+      "selector": "h6.oxd-topbar-header-breadcrumb-module",
+      "type": "header",
+      "text": "Dashboard"
+    }
+  },
+
+  "timesheet": {
+    "menuTime": {
+      "selector": "//a[contains(@class,'oxd-main-menu-item') and .//span[normalize-space()='Time']]",
+      "type": "menu"
+    },
+   
+    "viewButtons": {
+      "selector": "button:has-text('View')",
+      "type": "button"
+    },
+    "headerTimesheets": {
+      "selector": "//span[contains(@class,'oxd-topbar-body-nav-tab-item') and normalize-space()='Timesheets']",
+      "type": "header"
+    },
+    "MyTimesheets": {
+      "selector": "//a[contains(@class,'oxd-topbar-body-nav-tab-link') and normalize-space()='My Timesheets']",
+      "type": "link"
+    },
+    "EditTimesheetButton": {
+      "selector": "//button[contains(@class,'oxd-button') and normalize-space()='Edit']",
+      "type": "button"
+    },
+    "ProjectDropdown": {
+      "selector": "//input[contains(@placeholder,'Type for hints')]",
+      "type": "dropdown"
+    },
+    "ActivityDropdown": {
+      "selector": "//div[contains(@class,'oxd-select-text-input') and @tabindex='0']",
+      "type": "dropdown"
+    },
+    "2ndDayInput": {
+      "selector": "//input[contains(@class,'oxd-input--active')]",
+      "type": "input"
+    },
+    "3rdDayInput": {
+      "selector": "//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')]",
+      "type": "input"
+    },
+    "4thDayInput": {
+      "selector": "//input[contains(@class,'oxd-input') and contains(@class,'oxd-input--active')]",
+      "type": "input"
+    },
+    "SaveButton": {
+      "selector": "//button[@type='submit']",
+      "type": "button"
+    }
+  }
+}
