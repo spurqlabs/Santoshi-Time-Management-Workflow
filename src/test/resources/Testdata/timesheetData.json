@@ -1,15 +1,17 @@
 {
   "register": {
-    "username": "admin",
+    "username": "Admin",
     "password": "admin123",
-    "timesheet": {
-      "project": "ACME Ltd - ACME Ltd",
-      "activity": "Administration",
-      "hours": {
-        "2nd Feb": "00:01",
-        "3rd Feb": "00:02",
-        "4th Feb": "00:05"
-      }
+    "myinfo": {
+      "street1": "45 Street",
+      "city1": "New York City",
+      "state": "LN",
+      "zipcode": "67899",
+      "country1": "Algeria",
+      "mobile": "9123111081",
+      "workphone": "2319101010",
+      "workemail": "test@xcmail.com"
+      
     }
   }
 }

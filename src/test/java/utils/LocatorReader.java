@@ -24,7 +24,7 @@ public class LocatorReader {
                 );
             }
 
-            locatorData = JsonParser.parseReader(
+           locatorData = JsonParser.parseReader(
                     new InputStreamReader(is, StandardCharsets.UTF_8)
             ).getAsJsonObject();
 

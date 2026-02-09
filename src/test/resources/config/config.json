@@ -18,6 +18,10 @@
   },
   "reporting": {
   "screenshotOnFailure": true
+},
+"parallel":{
+  "enabled": true,
+  "threadCount": 2
 }
 
   

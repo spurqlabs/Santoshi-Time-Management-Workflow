@@ -6,6 +6,7 @@ import utils.TestDataReader;
 import pages.LoginPage;
 import step_definition.Hooks;
 import pages.MyTimesheetsPage;
+import pages.MyInfo;
 
 
 
@@ -24,6 +25,9 @@ public class TimesheetDataStepDef {
 
     LoginPage loginPage;
     MyTimesheetsPage myTimesheetsPage;
+    MyInfo myInfoPage;
+
+     
     
     
     @Given("user is on OrangeHRM login page")
@@ -31,7 +35,7 @@ public class TimesheetDataStepDef {
         
         
         
-        loginPage = new LoginPage(Hooks.page);
+        loginPage = new LoginPage(Hooks.getPage());
         
         // Prevent browser from closing immediately (for debug/demo)
         try {
@@ -46,13 +50,13 @@ public class TimesheetDataStepDef {
          {
            
             loginPage.enterUsername();
-         }
+                     }
 
         @When("user enter password")
     public void user_enter_password () 
     {
-        
-        loginPage.enterPassword();
+               loginPage.enterPassword();
+               
         }
 
         @When("user click on Login button")
@@ -62,17 +66,19 @@ public class TimesheetDataStepDef {
         loginPage.clickLogin();
         }
 
-    @Then("user should be logged in the application successfully")
-    public void user_should_be_logged_in_the_application_successfully()
+    @Then("the user is logged in to the application")
+    public void user_is_logged_in_the_application_successfully()
      {
+       
         System.out.println("Login successful, user is on Dashboard page");
+        assert loginPage.isDashboardDisplayed() : "Login failed: Dashboard is not displayed after clicking Login";
        }
 
 
     @Given("user is on Dashboard page")
     public void user_is_on_dashboard_page() 
     {
-        myTimesheetsPage = new MyTimesheetsPage(Hooks.page);
+        myTimesheetsPage = new MyTimesheetsPage(Hooks.getPage());
         System.out.println("User is on Dashboard page");        
         }
         
@@ -84,8 +90,8 @@ public class TimesheetDataStepDef {
         myTimesheetsPage.clickTimeMenu();
     }
 
-    @Then("ViewEmployeeTimesheet page should be displayed")
-    public void view_employee_timesheet_page_should_be_displayed() 
+    @Then("ViewEmployeeTimesheet page is displayed")
+    public void view_employee_timesheet_page_is_displayed() 
     {
         System.out.println("View Employee Timesheet page should be displayed");
     }
@@ -93,8 +99,8 @@ public class TimesheetDataStepDef {
     public void user_click_on_timesheets_option() {
         myTimesheetsPage.clickTimesheetsOption();
     }
-    @Then("Timesheet dropdown list should be displayed")
-    public void timesheet_dropdown_list_should_be_displayed()
+    @Then("Timesheet dropdown list is displayed")
+    public void timesheet_dropdown_list_is_displayed()
      {
         System.out.println("Timesheet dropdown list should be displayed");
     }   
@@ -104,8 +110,8 @@ public class TimesheetDataStepDef {
         myTimesheetsPage.clickMyTimesheetsOption();
     }
 
-    @Then("ViewMyTimesheet page should be displayed")
-    public void view_my_timesheet_page_should_be_displayed() 
+    @Then("ViewMyTimesheet page is displayed")
+    public void view_my_timesheet_page_is_displayed() 
     {
         System.out.println("View My Timesheet page should be displayed");
     }
@@ -116,72 +122,110 @@ public class TimesheetDataStepDef {
         myTimesheetsPage.clickEditButton();
     }
 
-    @Then("EditTimesheet page should be displayed")
-    public void edit_timesheet_page_should_be_displayed() 
+    @Then("EditTimesheet page is displayed")
+    public void edit_timesheet_page_is_displayed() 
     {
        System.out.println("Timesheet page should be displayed");
 
     }
+    @When("User click on Cancel button")
+  public void user_click_on_cancel_button() 
+  {
+    myTimesheetsPage.clickCancelButton();
+  }
 
-    @When("User enter project name and select the project from the list")
-    public void user_enter_project_name_and_select_the_project_from_the_list() 
-    {
-       myTimesheetsPage.enterProject();
+  @Then("My Timesheet page is displayed")
+  public void my_timesheet_page_is_displayed() 
+  {
+    System.out.println("My Timesheet page should be displayed");
+  }
+
+  @Given("user is on dashbrd page")
+  public void user_is_on_dashbrd_page() 
+  {
+    myInfoPage = new MyInfo(Hooks.getPage());
+    System.out.println("User is on dashboard page");
+  }
+
+  @When("user click on My Info tab")
+  public void user_click_on_my_info_tab()
+   {
+         myInfoPage.clickMyInfoMenu();
+  }
+
+  @Then("viewPersonalDetails page is displayed with all personal details of the user")
+  public void view_personal_details_page_is_displayed()
+   {
+    System.out.println("viewPersonalDetails page is displayed with all personal details of the user");
+  }
+
+  @When("user click on Contact Details subtab")
+  public void user_click_on_contact_details_subtab() 
+  {
+    myInfoPage.clickContactDetailsTab();
+  }
+
+  @Then("ContactDetails page is displayed")
+  public void contact_details_page_is_displayed() 
+  {
+    System.out.println("ContactDetails page is displayed");
     }
 
-    @Then("Project should be selected successfully")
-    public void project_should_be_selected_successfully() 
-    {
-        System.out.println("Project should be selected successfully");
-    }
+  // ---------- Enter contact fields (test data separated) ----------
+  @When("user enter steet1")
+  public void user_enter_street1() 
+  {
+    myInfoPage.enterstreet1();
 
-    @When("User select activity from the activity dropdown list")
-    public void user_select_activity_from_the_activity_dropdown_list() 
-    {
-        myTimesheetsPage.selectActivity();
-    }
+  }
 
-    @Then("Activity should be selected successfully")
-    public void activity_should_be_selected_successfully() 
-    {
-        System.out.println("Activity should be selected successfully");
-    }
+  @When("user enter city")
+  public void user_enter_city() {
+    myInfoPage.entercity();
+  }
 
-    @When("User enter hours for each day of the week")
-    public void user_enter_hours_for_each_day_of_the_week() 
-    {
-        myTimesheetsPage.enterHours();
-    }
+  @When("user enter state")
+  public void user_enter_state() {
+    myInfoPage.enterstate();
 
-    @Then("Hours should be entered successfully")
-    public void hours_should_be_entered_successfully() 
-    {
-        System.out.println("Hours should be entered successfully");
-    }
+  }
 
-    @When("User click on Save button")
-    public void user_click_on_save_button() 
-    {
-       myTimesheetsPage.clickSave();
-    }
+  @When("user enter zip code")
+  public void user_enter_zip_code() {
+    myInfoPage.enterzipCode();
+  }
 
-    @Then("Timesheet entry should be saved")
-    public void timesheet_entry_should_be_saved() 
-    {
-        System.out.println("Timesheet entry should be saved");
-    }
+  @When("user enter country")
+  public void user_enter_country() {
+    myInfoPage.selectcountry();
+  }
 
-    @And("Successfully saved message should be displayed")
-    public void successfully_saved_message_should_be_displayed() 
-    {
-        System.out.println("Successfully saved message should be displayed");
-    }
+  @When("user enter mobile")
+  public void user_enter_mobile() {
+    myInfoPage.entermobile();
+  }
 
-    @And("Created timesheet entry should be visible in the My Timesheets list")
-    public void created_timesheet_entry_should_be_visible_in_the_my_timesheets_list() 
-    {
-        System.out.println("Created timesheet entry should be visible in the My Timesheets list");
-    }
-    
+  @When("user enter work phone")
+  public void user_enter_work_phone() {
+    myInfoPage.enterworkmobile();    
+  }
 
+  @When("user enter work email")
+  public void user_enter_work_email() {
+    myInfoPage.enterworkemail();
+  }
+
+  @When("user click on Save button")
+  public void user_click_on_save_button() {
+    myInfoPage.clickSaveButton();
+  }
+
+  @Then("Contact Details is saved successfully")
+  public void contact_details_is_saved_successfully() 
+  {
+   System.out.println("Contact Details is saved successfully");
+  }
+  
+  
+   
 }

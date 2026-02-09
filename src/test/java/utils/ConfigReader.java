@@ -42,4 +42,32 @@ public class ConfigReader {
                      .get("slowMo")
                      .getAsInt();
     }
+
+    public static boolean isParallelEnabled()
+    {
+        try
+        {
+            return config.getAsJsonObject("parallel")
+                         .get("enabled")
+                         .getAsBoolean();
+        } catch(Exception e)
+        {
+            // Default to false if parallel config is missing
+            return false;
+        }
+    }
+
+    public static int getparlalelThreads()
+    {
+        try
+        {
+            return config.getAsJsonObject("parallel")
+                         .get("threadCount")
+                         .getAsInt();
+        } catch(Exception e)
+        {
+            // Default to 1 thread if parallel config is missing
+            return 1;
+        }
+    }
 }

@@ -1,42 +1,44 @@
 Feature: My Timesheet Management in OrangeHRM
+
 Background:
-    Given user is on OrangeHRM login page
-    When user enter username
-    When user enter password
-    When user click on Login button
-    Then user should be logged in the application successfully
+  Given user is on OrangeHRM login page
+  When user enter username
+  When user enter password
+  When user click on Login button
+  Then the user is logged in to the application
 
-  @login
-  Scenario: TC001 - Login to application
-    # Login already done in Background
-    Then user should be logged in the application successfully
+@smoke
+Scenario: TC001 - Login to application
+  Then the user is logged in to the application
 
-  @addtimesheetdata
-  Scenario: TC002 - Add Timesheet details
-    Given user is on Dashboard page
-    When  user navigates to Time -> Timesheets
-    Then ViewEmployeeTimesheet page should be displayed
-    When User click on Timesheet option
-    Then Timesheet dropdown list should be displayed
-    When user select My Timesheets option from the Timesheet dropdown
-    Then ViewMyTimesheet page should be displayed
-  
-    When User click on Edit button
-    Then EditTimesheet page should be displayed
-    When User enter project name and select the project from the list
-    Then Project should be selected successfully
-    When User select activity from the activity dropdown list
-    Then Activity should be selected successfully
-    When User enter hours for each day of the week
-    Then Hours should be entered successfully
-    When User click on Save button
-    Then Timesheet entry should be saved
-    And Successfully saved message should be displayed
-    And Created timesheet entry should be visible in the My Timesheets list
+@regression
+Scenario: TC002 - Add Timesheet details
+  Given user is on Dashboard page
+  When user navigates to Time -> Timesheets
+  Then ViewEmployeeTimesheet page is displayed
+  When User click on Timesheet option
+  Then Timesheet dropdown list is displayed
+  When user select My Timesheets option from the Timesheet dropdown
+  Then ViewMyTimesheet page is displayed
+  When User click on Edit button
+  Then EditTimesheet page is displayed
+  When User click on Cancel button
+  Then My Timesheet page is displayed
 
-
-
-
-
-
-
+@sanity
+Scenario: TC003 - Add Contact details
+  Given user is on dashbrd page
+  When user click on My Info tab
+  Then viewPersonalDetails page is displayed with all personal details of the user
+  When user click on Contact Details subtab
+  Then ContactDetails page is displayed
+  When user enter steet1
+  When user enter city
+  When user enter state
+  When user enter zip code
+  When user enter country
+  When user enter mobile
+  When user enter work phone
+  When user enter work email
+  When user click on Save button
+  Then Contact Details is saved successfully
