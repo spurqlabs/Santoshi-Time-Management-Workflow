@@ -1,0 +1,26 @@
+{
+"fileName": "recruitmentData.json",
+"scenarios":
+[
+{
+"scenarioName": "TC001 - Add Candidate details",
+"testData":
+{
+"firstname": "Rutuja",
+"lastname": "Raut",
+"jobvacancy": "Junior Account Assistant",
+"email": "rr@ccmail.com",
+"cnumber": "901212123901",
+"filePath": "src/test/resources/Files/Java Interview Questions.docx"
+}
+},
+{
+"scenarioName": "TC002 - View Candidate details and downloaded attached resume",
+"testData":
+{
+    "vacancy": "Junior Account Assistant"
+}
+}
+
+]
+}

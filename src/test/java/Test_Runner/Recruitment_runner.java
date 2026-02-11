@@ -8,8 +8,8 @@ import org.testng.annotations.DataProvider;
 
 
 @CucumberOptions(
-        features = "src/test/resources/features/timesheetData.feature",
-        glue = {"step_definition"}, tags = "@smoke or @regression or @sanity",
+        features = "src/test/resources/features/recruitmentData.feature",
+        glue = {"step_definition"}, tags = "@smoke1 or @regression1",
         plugin = {
                 "pretty", 
                 "html:target/cucumber-reports.html",
@@ -17,7 +17,7 @@ import org.testng.annotations.DataProvider;
         monochrome = true
        
 )
-public class Testrunner extends AbstractTestNGCucumberTests
+public class Recruitment_runner extends AbstractTestNGCucumberTests
 {
         // This enables TestNG to run scenarios in parallel. This is the key switch that runs scenarios in parallel
 

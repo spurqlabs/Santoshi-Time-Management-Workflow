@@ -15,6 +15,9 @@ public class LoginPage {
     private Page page;
     private TestDataReader testData;
 
+    private static final String LOGIN_SCENARIO = "TC001 - Login to application";
+
+
     public LoginPage(Page page) {
         this.page = page;
         this.testData = new TestDataReader("Testdata/timesheetData.json");
@@ -42,7 +45,7 @@ public class LoginPage {
 }
 
     public void enterUsername() {
-        String uname = testData.getData("register.username");
+        String uname = testData.getData(LOGIN_SCENARIO, "username");
         String userInput = LocatorReader.getLocator("login", "username", "selector");
 
         waitVisible(userInput);
@@ -56,7 +59,7 @@ public class LoginPage {
     }
 
     public void enterPassword() {
-        String pwd = testData.getData("register.password");
+        String pwd = testData.getData(LOGIN_SCENARIO, "password");
         String pwdInput = LocatorReader.getLocator("login", "password","selector");
         waitVisible(pwdInput);
         page.locator(pwdInput).fill(pwd);

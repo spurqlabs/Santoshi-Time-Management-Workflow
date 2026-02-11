@@ -14,6 +14,8 @@ public class MyInfo {
 
     private final Page page;
     private final TestDataReader testData;
+        private static final String LOGIN_SCENARIO = "TC003 - Add Contact details";
+
 
     public MyInfo(Page page) {
         this.page = page;
@@ -55,7 +57,7 @@ public class MyInfo {
     }
 
     public void enterstreet1() {
-        String street2 = testData.getData("register.myinfo.street1");
+        String street2 = testData.getData(LOGIN_SCENARIO, "street1");
         String streetInput = LocatorReader.getLocator("contactDetails", "street1", "selector");
         
         System.out.println("Trying to enter street1: " + street2);
@@ -94,7 +96,7 @@ public class MyInfo {
     }
 
     public void entercity() {
-    String cityName = testData.getData("register.myinfo.city1");
+    String cityName = testData.getData(LOGIN_SCENARIO, "city1");
     String cityInput = LocatorReader.getLocator("contactDetails", "city", "selector");
 
     Locator cityField = page.locator(cityInput).first();
@@ -109,7 +111,7 @@ public class MyInfo {
 
 
     public void enterstate() {
-        String stateName = testData.getData("register.myinfo.state");
+        String stateName = testData.getData(LOGIN_SCENARIO, "state");
         String stateInput = LocatorReader.getLocator("contactDetails", "stateProvince", "selector");
         waitVisible(stateInput);
         Locator statefield = page.locator(stateInput);
@@ -120,7 +122,7 @@ public class MyInfo {
     }
 
     public void enterzipCode() {
-        String zip = testData.getData("register.myinfo.zipcode");
+        String zip = testData.getData(LOGIN_SCENARIO,"zipcode");
         String zipInput = LocatorReader.getLocator("contactDetails", "zipPostalCode", "selector");
         waitVisible(zipInput);
         Locator zipfield = page.locator(zipInput);
@@ -133,7 +135,7 @@ public class MyInfo {
     }
 
     public void selectcountry() {
-        String cntry = testData.getData("register.myinfo.country1");
+        String cntry = testData.getData(LOGIN_SCENARIO,"country1");
         String dropdown = LocatorReader.getLocator("contactDetails", "Country", "selector");
         
         // Wait for the dropdown to be visible
@@ -243,7 +245,7 @@ public class MyInfo {
     }
 
     public void entermobile() {
-        String mble = testData.getData("register.myinfo.mobile");
+        String mble = testData.getData(LOGIN_SCENARIO,"mobile");
         String mbleInput = LocatorReader.getLocator("contactDetails", "mobile", "selector");
         waitVisible(mbleInput);
         Locator mblefield = page.locator(mbleInput);
@@ -255,7 +257,7 @@ public class MyInfo {
     }
 
     public void enterworkmobile() {
-        String wMobile = testData.getData("register.myinfo.workphone");
+        String wMobile = testData.getData(LOGIN_SCENARIO,"workphone");
         String wMobileInput = LocatorReader.getLocator("contactDetails", "work", "selector");
         
        waitVisible(wMobileInput);
@@ -268,7 +270,7 @@ Locator wMobilefield = page.locator(wMobileInput);
     }
     public void enterworkemail() 
     {
-        String workeml = testData.getData("register.myinfo.workemail");
+        String workeml = testData.getData(LOGIN_SCENARIO,"workemail");
         String workemlInput = LocatorReader.getLocator("contactDetails", "workEmail", "selector");
         
        waitVisible(workemlInput);

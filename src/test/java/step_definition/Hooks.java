@@ -14,7 +14,8 @@ import io.qameta.allure.Allure;
 import utils.ConfigReader;
 import utils.ScreenshotUtils;
 import io.cucumber.java.*;
-
+import java.nio.file.Paths;
+import java.nio.file.Files;
 
 public class Hooks
 {
@@ -55,7 +56,10 @@ private static final ThreadLocal<Playwright> tlPlaywright = new ThreadLocal<>();
         }
         tlBrowser.set(browser);
 
-        BrowserContext context = browser.newContext();
+       Browser.NewContextOptions options1 = new Browser.NewContextOptions();
+       options1.setAcceptDownloads(true);
+
+        BrowserContext context = browser.newContext(options1);
         tlContext.set(context);
 
         Page page = context.newPage();

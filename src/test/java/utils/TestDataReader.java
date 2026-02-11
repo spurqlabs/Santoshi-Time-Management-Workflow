@@ -3,6 +3,8 @@ package utils;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonArray;
+
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -42,4 +44,53 @@ public class TestDataReader {
 
         return current.getAsString();
     }
+    public String getData(String scenarioName, String key) {
+        JsonObject testDataObject = getScenarioTestData(scenarioName);
+
+        if (!testDataObject.has(key) || testDataObject.get(key).isJsonNull()) {
+            throw new IllegalArgumentException("Key '" + key + "' not found under scenario '" + scenarioName + "'");
+        }
+
+        JsonElement value = testDataObject.get(key);
+
+        // Return string form (works for numbers/booleans too)
+        if (value.isJsonPrimitive()) {
+            return value.getAsString();
+        }
+
+        throw new IllegalArgumentException(
+                "Key '" + key + "' under scenario '" + scenarioName + "' is not a primitive value."
+        );
+    }
+
+    /**
+     * Helper: returns the "testData" JsonObject for the matching scenarioName.
+     */
+    private JsonObject getScenarioTestData(String scenarioName) {
+        if (!root.has("scenarios") || !root.get("scenarios").isJsonArray()) {
+            throw new IllegalArgumentException("Invalid JSON: 'scenarios' array not found.");
+        }
+
+        JsonArray scenarios = root.getAsJsonArray("scenarios");
+
+        for (JsonElement element : scenarios) {
+            if (!element.isJsonObject()) continue;
+
+            JsonObject scenarioObj = element.getAsJsonObject();
+
+            if (!scenarioObj.has("scenarioName")) continue;
+
+            String name = scenarioObj.get("scenarioName").getAsString();
+            if (scenarioName.equals(name)) {
+                if (!scenarioObj.has("testData") || !scenarioObj.get("testData").isJsonObject()) {
+                    throw new IllegalArgumentException(
+                            "Invalid JSON: 'testData' object missing for scenario '" + scenarioName + "'"
+                    );
+                }
+                return scenarioObj.getAsJsonObject("testData");
+            }
+        }
+        throw new IllegalArgumentException("Scenario not found: '" + scenarioName + "'");
+
+}
 }
