@@ -1,9 +1,9 @@
 {
-"fileName": "recruitmentData.json",
+"fileName": "recruitmentData",
 "scenarios":
 [
 {
-"scenarioName": "TC001 - Add Candidate details",
+"scenarioName": "TC004 - Add Candidate details",
 "testData":
 {
 "firstname": "Rutuja",
@@ -15,7 +15,7 @@
 }
 },
 {
-"scenarioName": "TC002 - View Candidate details and downloaded attached resume",
+"scenarioName": "TC005 - View Candidate details and downloaded attached resume",
 "testData":
 {
     "vacancy": "Junior Account Assistant"

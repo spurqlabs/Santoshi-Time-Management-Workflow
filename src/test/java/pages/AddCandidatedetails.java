@@ -24,8 +24,8 @@ public class AddCandidatedetails{
 private Page page;
 private TestDataReader testData;
 
-    private static final String LOGIN_SCENARIO = "TC001 - Add Candidate details";
-    private static final String RECRUITMENT_SCENARIO = "TC002 - View Candidate details and downloaded attached resume";
+    private static final String LOGIN_SCENARIO = "TC004 - Add Candidate details";
+    private static final String RECRUITMENT_SCENARIO = "TC005 - View Candidate details and downloaded attached resume";
 
 
     public AddCandidatedetails(Page page) {

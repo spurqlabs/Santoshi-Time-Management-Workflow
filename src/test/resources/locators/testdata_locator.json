@@ -186,6 +186,113 @@
       "type": "link"
     }
   },
+  "leave": {
+    "menuLeave": {
+      "selector": "//a[contains(@class,'oxd-main-menu-item') and .//span[normalize-space()='Leave']]",
+      "type": "menu"
+    },
+    "viewLeaveList": {
+      "selector": "//h6[contains(@class,'oxd-topbar-header-breadcrumb-module') and (contains(.,'Leave') or contains(.,'View Leave'))] | //div[contains(@class,'oxd-table-card') and .]",
+      "type": "page"
+    },
+    "entitlementsTab": {
+      "selector": "//span[normalize-space()='Entitlements']",
+      "type": "tab"
+    },
+    "addEntitlementsButton": {
+      "selector": "//a[normalize-space()='Add Entitlements']",
+      "type": "button"
+    },
+    "employeeName": {
+      "selector": "//label[normalize-space()='Employee Name']/following::input[1]",
+      "type": "input"
+    },
+    "dropdownsuggestion":
+    {
+      "selector": "//div[@role='listbox']//span[text()=",
+      "type": "dropdownOption"      
+    },
+    "leaveType": {
+      "selector": "//label[normalize-space()='Leave Type']/following::div[contains(@class,'oxd-select-text')][1]",
+      "type": "dropdown"
+    },
+    "optionselect":
+    {
+       "selector": "//div[@role='option']//span[normalize-space()="
+    },
+
+    "leavePeriod": {
+      "selector": "//label[normalize-space()='Leave Period']/following::div[contains(@class,'oxd-select-text')][1]",
+      "type": "dropdown"
+    },
+    "entitlement": {
+      "selector": "//label[normalize-space()='Entitlement']/following::input[1]",
+      "type": "input"
+    },
+    "save":
+    {
+      "selector": "//button[normalize-space()='Save']",
+      "type": "button"
+    },
+    "confirm":
+    {
+      "selector": "//button[normalize-space()='Yes' or normalize-space()='Ok' or normalize-space()='Confirm']",
+      "type": "button"
+    },
+    "updateEntitlementConfirm": {
+      "selector": "//button[normalize-space()='Ok' or normalize-space()='Yes' or normalize-space()='Confirm']",
+      "type": "button"
+    },
+    "applyTab": {
+      "selector": "//a[@class='oxd-topbar-body-nav-tab-item' and normalize-space(text())='Apply']",
+      "type": "tab"
+    },
+    "applyFromDate": {
+      "selector": "//label[normalize-space()='From Date']/following::input[1]",
+      "type": "input"
+    },
+    "applyToDate": {
+      "selector": "//label[normalize-space()='To Date']/following::input[1]",
+      "type": "input"
+    },
+    
+      "partialDays": {
+      "selector": "//label[normalize-space()='Partial Days']/following::div[contains(@class,'oxd-select-text')][1]",
+      "type": "dropdown"
+    },
+    "duration": {
+      "selector": "//label[normalize-space()='Duration']/following::div[contains(@class,'oxd-select-text')][1]",
+      "type": "dropdown"
+    },
+    "comment":
+    {
+      "selector": "//textarea[contains(@class,'oxd-textarea')]"
+    },
+    "applyButton": {
+      "selector": "//button[normalize-space()='Apply']",
+      "type": "button"
+    },
+    "myLeaveTab": {
+      "selector": "//a[@class='oxd-topbar-body-nav-tab-item'][text()='My Leave']",
+      "type": "tab"
+    },
+    "myLeaveFromDate": {
+      "selector": "//label[normalize-space()='From Date']/following::input[1]",
+      "type": "input"
+    },
+    "myLeaveToDate": {
+      "selector": "//label[normalize-space()='To Date']/following::input[1]",
+      "type": "input"
+    },
+    "leaveSearchButton": {
+      "selector": "//button[contains(@class,'oxd-button') and (normalize-space()='Search' or .=' Search')]|//button[.//span[text()='Search']]",
+      "type": "button"
+    },
+    "pendingStatus": {
+      "selector": "//table//td[normalize-space()='Pending Approval'] | //div[contains(text(),'Pending Approval')]",
+      "type": "text"
+    }
+  },
   "profile": {
     "profileMenu": {
       "selector": "//i[contains(@class,'bi-caret-down-fill') and contains(@class,'oxd-userdropdown-icon')]",

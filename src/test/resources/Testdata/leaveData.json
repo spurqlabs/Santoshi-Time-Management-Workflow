@@ -1,0 +1,29 @@
+{
+"fileName": "leaveData",
+"scenarios":
+[
+{
+"scenarioName": "TC006 - Add Entitlements for the apply leaves",
+"testData":
+{
+"employeeName": "JoshuaUpdated Gary HansenUser",
+"leavetype": "CAN - Vacation",
+"leaveperiod": "2026-01-01 to 2026-12-31",
+"entitlement": "5.00"
+}
+},
+{
+"scenarioName": "TC008 - Verify applied leave appears on My leave page",
+"testData":
+{
+
+"fromdate": "2026-02-02",
+"todate": "2026-11-03"
+}
+
+
+    
+}
+
+]
+}

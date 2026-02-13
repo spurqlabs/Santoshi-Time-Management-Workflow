@@ -8,7 +8,7 @@ Background:
   Then the user is logged in to the application
 
 @smoke1
-Scenario: TC001 - Add Candidate details
+Scenario: TC004 - Add Candidate details
 Given user is on dashboard page
 When user click on Recruitment menu
 Then user navigate to viewCandidates page
@@ -24,7 +24,7 @@ When user click on Savebutton
 Then the candidate details is added successfully
 
 @regression1
-Scenario: TC002 - View Candidate details and downloaded attached resume
+Scenario: TC005 - View Candidate details and downloaded attached resume
 Given user is on home page
 When user click on Recruit_menu 
 Then user navigate to recruitment page
