@@ -22,6 +22,98 @@
     }
   },
 
+  "admin": {
+    "menuAdmin": {
+      "selector": "//a[contains(@class,'oxd-main-menu-item') and .//span[normalize-space()='Admin']]",
+      "type": "menu"
+    },
+    "systemUsersHeader": {
+      "selector": "//h6[contains(@class,'oxd-topbar-header-breadcrumb-module') and contains(.,'System Users')]",
+      "type": "header"
+    },
+    "addButton": {
+      "selector": "//button[.//i and contains(., 'Add')]|//button[normalize-space()='Add']",
+      "type": "button"
+    },
+    "searchUsername": {
+      "selector": "//label[normalize-space()='Username']/ancestor::div[contains(@class,'oxd-input-group')]//input",
+      "type": "input"
+    },
+    "searchButton": {
+      "selector": "//button[contains(@class,'oxd-button') and (normalize-space()='Search' or .=' Search')]",
+      "type": "button"
+    },
+    "resultsTable": {
+      "selector": "//div[contains(@class,'oxd-table-card')] | //table[contains(@class,'oxd-table')]",
+      "type": "table"
+    }
+  },
+
+  "userManagement": {
+    "userRoleDropdown": {
+      "selector": "//label[normalize-space()='User Role']/following::div[contains(@class,'oxd-select-text-input')][1]",
+      "type": "dropdown"
+    },
+     "optionselect":
+    {
+       "selector": "//div[@role='option']//span[normalize-space()=",
+       "type": "dropdownOption"
+    },
+
+
+    "employeeName": {
+      "selector": "//label[normalize-space()='Employee Name']/following::input[1]",
+      "type": "input"
+    },
+
+    "dropdownsuggestion":
+    {
+      "selector": "//div[@role='listbox']//span[text()=",
+      "type": "dropdownOption"      
+    },
+
+    "statusDropdown": {
+      "selector": "//label[normalize-space()='Status']/following::div[contains(@class,'oxd-select-text-input')][1]",
+      "type": "dropdown"
+    },
+    "username": {
+      "selector": "//label[normalize-space()='Username']/following::input[1] | //input[@name='username']",
+      "type": "input"
+    },
+    "password": {
+      "selector": "//label[normalize-space()='Password']/following::input[1] | //input[@type='password' and (@name='password' or contains(@placeholder,'Password'))]",
+      "type": "input"
+    },
+    "confirmPassword": {
+      "selector": "//label[normalize-space()='Confirm Password']/following::input[1] | //input[@type='password' and (@name='confirmPassword' or contains(@placeholder,'Confirm'))]",
+      "type": "input"
+    },
+    "saveButton": {
+      "selector": "//button[.//span[normalize-space()='Save']]|//button[normalize-space()='Save']",
+      "type": "button"
+    },
+    "toast":
+    {
+      "selector": "//p[contains(@class,'oxd-text--toast-message') and contains(.,'Successfully')]"
+    },
+    "editButton": {
+      "selector": "//i[@class='oxd-icon bi-pencil-fill']",
+      "type": "button"
+    },
+    "deleteIcon": {
+      "selector": "//i[contains(@class,'bi-trash') or contains(@class,'delete')]/ancestor::button",
+      "type": "icon"
+    },
+    "confirmDeleteButton": {
+      "selector": "//button[normalize-space()='Yes, Delete' or normalize-space()='Yes' or normalize-space()='Ok' or normalize-space()='Confirm']",
+      "type": "button"
+    },
+    "duplicateUsernameError": {
+      "selector": "//span[contains(@class,'oxd-input-field-error-message') and (contains(.,'already exists') or contains(.,'already been taken'))]",
+      "type": "text"
+    }
+  },
+
   "timesheet": {
     "menuTime": {
       "selector": "//a[contains(@class,'oxd-main-menu-item') and .//span[normalize-space()='Time']]",

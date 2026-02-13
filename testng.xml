@@ -14,13 +14,17 @@
 </classes>  
 </test>
 
-
-
 <test name="run Cucumber Tests 3">
 <classes>
     <class name="Test_Runner.Leave_runner"/>
 </classes>  
 </test>
-    
+
+<test name="run Cucumber Tests 4">
+<classes>
+    <class name="Test_Runner.User_runner"/>
+</classes>  
+</test>
+
 
 </suite>
