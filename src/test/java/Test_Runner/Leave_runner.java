@@ -8,7 +8,7 @@ import org.testng.annotations.DataProvider;
 
 
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/leaveData.feature",
         glue = {"step_definition"}, tags = "@smoke2 or @smoke3 or @regression2",
         plugin = {
                 "pretty", 
