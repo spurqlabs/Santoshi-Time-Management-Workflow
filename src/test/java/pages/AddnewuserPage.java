@@ -15,12 +15,10 @@ import java.time.format.TextStyle;
 import org.slf4j.Logger;
 import utils.LoggerUtil;
 
-
 public class AddnewuserPage
 {
 private static final Logger log = LoggerUtil.getLogger(AddnewuserPage.class);
 private Page page;
-
 public AddnewuserPage(Page page) {
         this.page = page;
         log.info("Addnewuser object initialized");
