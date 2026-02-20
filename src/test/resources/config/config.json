@@ -22,6 +22,9 @@
 "parallel":{
   "enabled": true,
   "threadCount": 2
+},
+"window":{
+  "maximize": true
 }
 
   

@@ -102,8 +102,8 @@ public void leavedata_is_added()
     public void leftmenu()
     {
       addEntitlementsPage.clickleavemenu();
-
     }
+ 
 @When ("user click on Apply tab")
 public void clickapply()
 {
@@ -145,9 +145,9 @@ public void duration(String duration)
 }
 
 @When ("user enter comments in the textbox {string}")
-public void comment(String comment)
+public void comment(String comments)
 {
-    applyleavePage.entercmt(comment);
+    applyleavePage.entercmt(comments);
 }
 
 @When("user click on apply button")
@@ -168,6 +168,7 @@ public void click_leave_leftmenu()
 {
     addEntitlementsPage.clickleavemenu();
     }
+
 
 @When("user click on My Leave tab")
     public void clickmyleavetab()

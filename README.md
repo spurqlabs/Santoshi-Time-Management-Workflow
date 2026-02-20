@@ -399,6 +399,24 @@ mvn site
 
 ---
 
+**CI / GitHub Actions**
+
+- **Where**: `.github/workflows/ci.yml` — a Windows-based workflow that runs `mvn test`, collects `allure-results` and uploads generated `allure-report` as artifacts.
+- **Trigger**: manual (`workflow_dispatch`) — open the Actions tab and run the workflow.
+- **How it works**: The workflow sets up JDK (Java 25 per `pom.xml`), caches Maven, runs tests, attempts to generate an Allure HTML report and uploads both `allure-results` and `allure-report` as workflow artifacts.
+
+Quick run locally before using CI:
+
+```bash
+# Run tests locally
+mvn clean test
+
+# Generate Allure HTML (requires `allure` CLI installed)
+allure generate target/allure-results -o target/allure-report --clean
+allure open target/allure-report
+```
+
+
 ## 📞 Support & Issues
 
 For issues or questions:

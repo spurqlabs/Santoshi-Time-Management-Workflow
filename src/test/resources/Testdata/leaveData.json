@@ -6,7 +6,7 @@
 "scenarioName": "TC006 - Add Entitlements for the apply leaves",
 "testData":
 {
-"employeeName": "JoshuaUpdated Gary HansenUser",
+"employeeName": "manda user manda user manda user",
 "leavetype": "CAN - Vacation",
 "leaveperiod": "2026-01-01 to 2026-12-31",
 "entitlement": "5.00"
@@ -17,8 +17,8 @@
 "testData":
 {
 
-"fromdate": "2026-02-02",
-"todate": "2026-11-03"
+"fromdate": "2026-02-06",
+"todate": "2026-14-07"
 }
 
 

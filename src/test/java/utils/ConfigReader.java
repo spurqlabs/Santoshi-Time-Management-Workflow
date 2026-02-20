@@ -43,6 +43,15 @@ public class ConfigReader {
                      .getAsInt();
     }
 
+    public static boolean isMaximize() {
+
+if (config.has("window") && config.getAsJsonObject("window").has("maximize")) {
+        return config.getAsJsonObject("window")
+                     .get("maximize")
+                     .getAsBoolean();
+    }
+    return false; //default
+    }
     public static boolean isParallelEnabled()
     {
         try
@@ -71,3 +80,4 @@ public class ConfigReader {
         }
     }
 }
+

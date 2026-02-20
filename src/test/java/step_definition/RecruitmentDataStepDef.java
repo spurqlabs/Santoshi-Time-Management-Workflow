@@ -112,31 +112,30 @@ public void user_navigate_to_recruitment_page() {
     System.out.println("User navigated to recruitment page");
 }
 
-@When("user select vacancy from drop down")
-public void user_select_vacancy_from_drop_down() {
-    addCandidateDetailsPage.selectjobvacancy();
+@When ("user added a new candidate")
+public void add_new_candidate()
+{
+addCandidateDetailsPage.clickadd();
+addCandidateDetailsPage.enterfirstName();
+addCandidateDetailsPage.enterlastName();
+addCandidateDetailsPage.selectvacancy();
+addCandidateDetailsPage.enteremail();
+addCandidateDetailsPage.entercontact();
+addCandidateDetailsPage.uploadresume();
+addCandidateDetailsPage.clicksave();
 }
 
 
-@When("user click on search button")
-public void user_click_on_search_button() {
-    addCandidateDetailsPage.clicksrch();
+
+@Then ("candidate is created sucessfully")
+public void candidate_added()
+{
+System.out.println("New User is added successfully");
+
 }
 
-@Then("the candidate details is displayed on the page")
-public void the_candidate_details_is_displayed_on_the_page() {
-    System.out.println("Candidate details displayed on the page.");
-}
 
-@When("user click on view icon")
-public void user_click_on_view_icon() {   
-    addCandidateDetailsPage.clickview();
-}
 
-@Then("user navigate to Candidate details page")
-public void user_navigate_to_candidate_details_page() {
-    System.out.println("User navigated to Candidate details page");
-}
 
 @When("user verify the entered details")
 public void user_verify_the_entered_details() 
@@ -159,15 +158,65 @@ public void the_resume_is_downloaded_successfully() {
     System.out.println("Resume downloaded successfully.");
 }
 
-@When("user click on back button from browser")
-public void user_click_on_back_button_from_browser() {
-    addCandidateDetailsPage.clickback();
+@When ("user click on Shortlist button")
+public void shortlist()
+{
+
+addCandidateDetailsPage.clickshortlist();
+
 }
 
-@Then ("user navigate to Candidates list page")
-public void user_navigate_to_candidates_list_page() {
-    System.out.println("User navigated to Candidates list page");
+
+@Then ("user navigate to changeCandidateVacancyStatus page")
+public void candidatevcypage()
+{
+System.out.println("User navigate to changeCandidateVacancyStatus page for the shorlist the candidate");
 }
+
+@When ("user enter Notes and click save_BTN")
+public void enternote()
+{
+   addCandidateDetailsPage.enternote();
+   addCandidateDetailsPage.saveclick();
+}
+
+@Then ("entered details are saved and navigate to addCandidate page")
+public void details()
+{
+    System.out.println("Entered details are saved and navigate to addCandidate page");
+}
+
+@When ("user click on Schedule Interview button")
+public void scheduleinterview()
+{
+addCandidateDetailsPage.clickscheduleinterview();
+
+}
+
+
+@Then ("user navigate to Schedule Interview page for the entered interview details")
+public void schedule_interview()
+{
+  System.out.println("User navigate to Schedule Interview page for the entered interview details");
+}
+
+@When ("user enter interview schedule details and click_SAVE")
+public void interview_details()
+{
+addCandidateDetailsPage.entertitle();
+addCandidateDetailsPage.enterineterviewer();    
+addCandidateDetailsPage.selectdate();
+addCandidateDetailsPage.selecttime();
+addCandidateDetailsPage.note();
+addCandidateDetailsPage.saveclick();
+}
+
+@Then ("entered interview details are saved and navigate to Applcation stage page with Interview Scheduled status")
+public void interivew_details_save()
+{
+System.out.println("Entered interview details are saved and navigate to Applcation stage page with Interview Scheduled status");
+}
+
 
 @When("user click on Logout button from profile menu")
 public void user_click_on_logout_button_from_profile_menu() {

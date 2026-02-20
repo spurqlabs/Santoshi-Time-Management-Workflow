@@ -32,14 +32,14 @@ Background:
   When user select to date "<toDate>"
   When user select partial days option "<partialDay>"
   When user select duration "<duration>"
-  When user enter comments in the textbox "<comment>"
+  When user enter comments in the textbox "<comments>"
   When user click on apply button
   Then entered details is saved and leave is applied successfully
 
   Examples:
-  | leaveType      | fromDate   | toDate     | partialDay | duration             | comment        |
-  | CAN - Vacation | 2026-02-02 | 2026-03-02 | All Days   | Half Day - Morning   | Travel Leave   |
-  | CAN - Vacation | 2026-10-03 | 2026-11-03 | All Days   | Half Day - Afternoon | Friend Leave   |
+  | leaveType      | fromDate   | toDate     | partialDay | duration             | comments         |
+  | CAN - Vacation | 2026-02-06 | 2026-03-06 | All Days   | Half Day - Morning   | Personal Leave   |
+  | CAN - Vacation | 2026-13-07 | 2026-14-07 | All Days   | Half Day - Afternoon | Marriage Leave   |
 
   @regression2
 Scenario: TC008 - Verify applied leave appears on My leave page
@@ -53,3 +53,4 @@ Scenario: TC008 - Verify applied leave appears on My leave page
   When user click on profile icon and select logout option
   Then From application user is getting logged out successfully
   
+ 

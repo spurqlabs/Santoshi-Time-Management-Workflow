@@ -1,20 +1,22 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="Cucumber Parallel Suite" parallel="methods" thread-count="3">
 
-    
+  
+  
 <test name="Run Cucumber Tests 1">
         <classes>
             <class name="Test_Runner.Testrunner"/>
         </classes>
     </test>
 
+    
 <test name="run Cucumber Tests 2">
 <classes>
     <class name="Test_Runner.Recruitment_runner"/>
 </classes>  
 </test>
 
-<test name="run Cucumber Tests 3">
+    <test name="run Cucumber Tests 3">
 <classes>
     <class name="Test_Runner.Leave_runner"/>
 </classes>  
@@ -25,6 +27,15 @@
     <class name="Test_Runner.User_runner"/>
 </classes>  
 </test>
+
+
+
+
+
+
+
+
+
 
 
 </suite>

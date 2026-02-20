@@ -12,16 +12,21 @@ import com.microsoft.playwright.options.WaitUntilState;
 import java.time.LocalDate;
 import java.util.Locale;
 import java.time.format.TextStyle;
+import org.slf4j.Logger;
+import utils.LoggerUtil;
 
 public class ModifyUserPage
 {
+    private static final Logger log = LoggerUtil.getLogger(ModifyUserPage.class);
 private Page page;
 
 public ModifyUserPage(Page page) {
         this.page = page;
+         log.info("ModifyUserdetail object initialized");
             }
 
             private void waitVisible(String selector) {
+                 log.debug("Waiting for element to be visible: {}", selector);
         page.waitForSelector(selector,
                 new Page.WaitForSelectorOptions()
                         .setState(WaitForSelectorState.VISIBLE)
@@ -31,10 +36,12 @@ public ModifyUserPage(Page page) {
     private void safeClick(String selector) {
     waitVisible(selector);
     Locator loc = page.locator(selector);
+    log.info("Clicking element: {}", selector);
 
     try {
         loc.click(new Locator.ClickOptions().setTimeout(30000));
     } catch (Exception ignored) {
+        log.warn("Normal click failed, trying force click for selector: {}", selector);
         loc.click(
             new Locator.ClickOptions()
                 .setForce(true)
@@ -46,24 +53,33 @@ public ModifyUserPage(Page page) {
 
 public void clickdelete()
 {
+log.info("Clicking on Delete icon");
+String deleteBtn = LocatorReader.getLocator("locatoradmin","userManagement","deleteIcon", "selector");
+log.debug("Delete Icon selector: {}", deleteBtn);
 
-String deleteBtn = LocatorReader.getLocator("userManagement","deleteIcon", "selector");
 waitVisible(deleteBtn);
 safeClick(deleteBtn);
 
-String popup = LocatorReader.getLocator("userManagement","confirmDeleteButton", "selector");
+String popup = LocatorReader.getLocator("locatoradmin","userManagement","confirmDeleteButton", "selector");
+log.info("Validating confirmation popup. Actual: {}", popup);
+
 Assert.assertTrue(page.locator(popup).isVisible(), "Delete confirmation popup is not displayed");
+log.info("Confirmation pop up validated successfully");
 }
 
 public void confirmdelete()
 {
+log.info("Clicking on Confirmdelete button");
 
-String confirmdelete = LocatorReader.getLocator("userManagement","confirmDeleteButton", "selector");
+String confirmdelete = LocatorReader.getLocator("locatoradmin","userManagement","confirmDeleteButton", "selector");
+log.debug("Confirmdelete button selector: {}", confirmdelete);
+
 waitVisible(confirmdelete);
 safeClick(confirmdelete);
 page.evaluate("window.scrollBy(0, 500)");
 
-String toastSelector = LocatorReader.getLocator("userManagement", "toast", "selector");
+String toastSelector = LocatorReader.getLocator("locatoradmin","userManagement", "toast", "selector");
+    log.info("Waiting for toast after saving candidate details");
     page.waitForSelector(toastSelector,
             new Page.WaitForSelectorOptions()
                     .setState(WaitForSelectorState.VISIBLE)
@@ -71,24 +87,32 @@ String toastSelector = LocatorReader.getLocator("userManagement", "toast", "sele
 
     Assert.assertTrue(page.locator(toastSelector).isVisible(),
             "User details not deleted successfully");
+             log.info("User details deleted successfully");
             }
 
 public void click_logout()
     {
-
-    String profilebtn = LocatorReader.getLocator("profile", "profileMenu","selector");
+      log.info("Clicking on profile icon");
+      String profilebtn = LocatorReader.getLocator("locatortimesheet","profile", "profileMenu","selector");
     Locator profileMenu = page.locator(profilebtn).first();
+    log.debug("Profile Icon selector: {}", profileMenu);
+
     profileMenu.waitFor(new Locator.WaitForOptions()
             .setState(com.microsoft.playwright.options.WaitForSelectorState.VISIBLE));
 
     profileMenu.click();
 
-    String logbtn = LocatorReader.getLocator("profile", "logout","selector");
+    log.info("Clicking on logout option");
+    String logbtn = LocatorReader.getLocator("locatortimesheet","profile", "logout","selector");
     Locator logoutBtn = page.locator(logbtn).first();
+    
+    log.debug("Logout option selector: {}", logoutBtn);
+
     logoutBtn.waitFor(new Locator.WaitForOptions()
             .setState(com.microsoft.playwright.options.WaitForSelectorState.VISIBLE));
 
     logoutBtn.click();
+    log.info("User logout Successfully");
     
     }
 

@@ -8,17 +8,23 @@
 {
 "firstname": "Rutuja",
 "lastname": "Raut",
-"jobvacancy": "Junior Account Assistant",
+"jobvacancy": "Payroll Administrator",
 "email": "rr@ccmail.com",
 "cnumber": "901212123901",
 "filePath": "src/test/resources/Files/Java Interview Questions.docx"
 }
 },
 {
-"scenarioName": "TC005 - View Candidate details and downloaded attached resume",
+"scenarioName": "TC005 - View Candidate details, downloaded attached resume and schedule Interview",
 "testData":
 {
-    "vacancy": "Junior Account Assistant"
+    "Notes": "Candidate Shortlisted",
+    "Interview Title": "Payroll Interview",
+    "Interviewer": "manda akhil jhhj",
+    "Interview Date": "2026-18-02",
+    "Interview Time": "02",
+    "Interview Time1": "PM",
+    "Note": "Interview Completed"
 }
 }
 

@@ -16,6 +16,8 @@ import utils.ScreenshotUtils;
 import io.cucumber.java.*;
 import java.nio.file.Paths;
 import java.nio.file.Files;
+import org.slf4j.Logger;
+import utils.LoggerUtil;
 
 public class Hooks
 {
@@ -25,6 +27,9 @@ private static final ThreadLocal<Playwright> tlPlaywright = new ThreadLocal<>();
     private static final ThreadLocal<Browser> tlBrowser = new ThreadLocal<>();
     private static final ThreadLocal<BrowserContext> tlContext = new ThreadLocal<>();
     private static final ThreadLocal<Page> tlPage = new ThreadLocal<>();
+
+    private static final Logger log = LoggerUtil.getLogger(Hooks.class);
+
 
     public static Page getPage()
     {
@@ -38,6 +43,11 @@ private static final ThreadLocal<Playwright> tlPlaywright = new ThreadLocal<>();
         BrowserType.LaunchOptions options = new BrowserType.LaunchOptions()
                 .setHeadless(ConfigReader.isHeadless())
                 .setSlowMo(ConfigReader.getSlowMo());
+
+                if (ConfigReader.isMaximize())
+                {
+                    options.setArgs(java.util.Arrays.asList("--start-maximized"));
+                }
 
         Browser browser;      
         switch (ConfigReader.getBrowserName().toLowerCase()) {
@@ -58,6 +68,12 @@ private static final ThreadLocal<Playwright> tlPlaywright = new ThreadLocal<>();
 
        Browser.NewContextOptions options1 = new Browser.NewContextOptions();
        options1.setAcceptDownloads(true);
+
+       if (ConfigReader.isMaximize())
+       {
+        options1.setViewportSize(null);
+       }
+       log.info("Starting browser: {}", ConfigReader.getBrowserName());
 
         BrowserContext context = browser.newContext(options1);
         tlContext.set(context);
@@ -101,6 +117,9 @@ private static final ThreadLocal<Playwright> tlPlaywright = new ThreadLocal<>();
         tlContext.remove();
         tlBrowser.remove();
         tlPlaywright.remove();
+
+        log.info("Closing browser after scenario: {}", scenario.getName());
+
     }
 
     @AfterStep
@@ -111,7 +130,7 @@ private static final ThreadLocal<Playwright> tlPlaywright = new ThreadLocal<>();
         // Create a proper Allure step context for the screenshot
         // This ensures the screenshot appears under the correct step
         Page page = tlPage.get();
-        Allure.step("Screenshot: " + stepText, () -> {
+        Allure.step("Screenshot after step: " , () -> {
             ScreenshotUtils.captureScreenshotForStep(page, scenario, stepText);
         });
     }

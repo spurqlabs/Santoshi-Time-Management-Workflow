@@ -1,0 +1,176 @@
+{
+
+
+
+    
+  "recruitment": {
+    "menuRecruitment": {
+      "selector": "//a[contains(@class,'oxd-main-menu-item') and .//span[normalize-space()='Recruitment']]",
+      "type": "menu"
+    },
+"dropdownsuggestion":
+    {
+      "selector": "//div[@role='listbox']//span[text()=",
+      "type": "dropdownOption"      
+    },
+"sidepanel":
+{
+  "selector": "//aside[contains(@class,'oxd-sidepanel')]"
+},
+"optionselect":{
+  "selector": "//div[@role='option']//span[normalize-space()="
+},
+"dropdownOptionContains": {
+  "selector": "//*[contains(text(), '{value}') and @role='option']",
+  "type": "dropdownOption"
+},
+"rolecount":
+{
+  "selector": "//div[@role='option']"
+},
+    "viewCandidatesButton": {
+      "selector": "//i[contains(@class,'bi-eye-fill')]/ancestor::button",
+      "type": "link"
+    },
+    "addButton": {
+      "selector": "//button[.//i and contains(., 'Add')]|//button[normalize-space()='Add']",
+      "type": "button"
+    }
+    ,
+    "shortlistButton": {
+      "selector": "//button[.//span[normalize-space()='Shortlist']] | //button[normalize-space()='Shortlist']",
+      "type": "button"
+    },
+    "changeCandidateVacancyStatusHeader": {
+      "selector": "//h6[contains(normalize-space(),'Change Candidate Vacancy Status')]",
+      "type": "header"
+    },
+    "notesInput": {
+      "selector": "//label[normalize-space()='Notes']/following::textarea[1] | //textarea[@name='notes']",
+      "type": "textarea"
+    },
+    "saveButton": {
+      "selector": "//button[.//span[normalize-space()='Save']]|//button[normalize-space()='Save']",
+      "type": "button"
+    },
+    
+
+    "toast":
+    {
+      "selector": "//p[contains(@class,'oxd-text--toast-message') and contains(.,'Successfully')]"
+    },
+    "scheduleInterviewButton": {
+      "selector": "//button[.//span[normalize-space()='Schedule Interview']] | //button[normalize-space()='Schedule Interview']",
+      "type": "button"
+    },
+    "scheduleInterviewHeader": {
+      "selector": "//h6[contains(normalize-space(),'Schedule Interview')]",
+      "type": "header"
+    },
+    "interviewDate": {
+      "selector": "//input[@placeholder='yyyy-dd-mm']",
+      "type": "input"
+    },
+    "interviewTime": {
+      "selector": "//label[normalize-space()='Time']/following::input[1] | //input[contains(@name,'interview') and contains(@name,'time')]",
+      "type": "input"
+    },
+    "Time":
+    {
+      "selector": "//label[normalize-space()='Time']/ancestor::div[contains(@class,'oxd-input-group')]//input[contains(@class,'oxd-time-hour-input-text')]"
+    },
+    "TimeAMPM":
+    {
+      "selector":"//input[@type='radio' and @value='PM']"
+    },
+
+
+    "interviewer": {
+      "selector": "input[include-employees='onlyCurrent']",
+      "type": "input"
+    },
+    "interviewtitle":
+    {
+      "selector": "//label[normalize-space()='Interview Title']/ancestor::div[contains(@class,'oxd-input-group')]//input",
+      "type": "input"
+
+    },
+     "username":{
+      "selector": "//p[contains(@class,'oxd-userdropdown-name')]",
+      "type":"text"
+
+     },
+
+     "autoCompleteOptions": {
+    "selector": "//div[@role='listbox']//span",
+    "type": "list"
+  },
+  "optionexact":
+  {
+    "selector": "//div[@role='listbox']//span[normalize-space()=",
+    "type": "list"
+  },
+
+    "applicationStageStatusInterviewScheduled": {
+      "selector": "//div[contains(.,'Interview Scheduled')] | //span[normalize-space()='Interview Scheduled']",
+      "type": "text"
+    }
+  },
+
+  "addCandidate": {
+    "firstName": {
+      "selector": "//label[normalize-space()='First Name']/following::input[1] | //input[@name='firstName']",
+      "type": "textbox"
+    },
+    "lastName": {
+      "selector": "//label[normalize-space()='Last Name']/following::input[1] | //input[@name='lastName']",
+      "type": "textbox"
+    },
+    "jobVacancy": {
+      "selector": "//label[contains(normalize-space(),'Vacancy')]/following::div[contains(@class,'oxd-select-text')][1]",
+      "type": "dropdown"
+    },
+    "email": {
+      "selector": "//label[normalize-space()='Email']/following::input[1] | //input[@type='email']",
+      "type": "textbox"
+    },
+    "contactNumber": {
+      "selector": "//label[contains(normalize-space(),'Contact') or normalize-space()='Contact Number']/following::input[1]",
+      "type": "textbox"
+    },
+    "resumeUploadInput": {
+  "selector": "//label[normalize-space()='Resume']/following::input[@type='file'][1]",
+  "type": "file"
+},
+    "resumeBrowseButton": {
+  "selector": "//div[contains(@class,'oxd-file-button') and normalize-space()='Browse']",
+  "type": "button"
+},
+    "saveButton": {
+      "selector": "//button[.//span[normalize-space()='Save']]|//button[normalize-space()='Save']",
+      "type": "button"
+    }
+  },
+"viewCandidates": {
+    "vacancyDropdown": {
+      "selector": "//label[normalize-space()='Vacancy']/following::div[contains(@class,'oxd-select-text-input')][1]",
+      "type": "dropdown"
+    },
+    "searchButton": {
+      "selector": "//button[contains(@class,'oxd-button') and (normalize-space()='Search' or .=' Search')]|//button[.//span[text()='Search']]",
+      "type": "button"
+    },
+    "resultsTable": {
+      "selector": "//div[contains(@class,'oxd-table-card')] | //table[contains(@class,'oxd-table')]",
+      "type": "table"
+    },
+    "viewIcon": {
+      "selector": "//button[contains(@title,'View') or contains(@aria-label,'View')] | //i[contains(@class,'eye') or contains(@class,'view')]/ancestor::button",
+      "type": "icon"
+    },
+    "resumeLink": {
+      "selector": "//i[contains(@class,'bi-download')]/ancestor::a | //i[contains(@class,'bi-download')]",
+      "type": "link"
+    }
+  }
+}

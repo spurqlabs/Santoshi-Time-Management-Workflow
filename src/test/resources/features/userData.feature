@@ -30,8 +30,8 @@ Background:
 
   Examples:
   | UserRole | EmployeeName       | status   | username    | password   | confirmpassword  |
-  | Admin    | Med Med Reddy      | Enabled  | doeadmin    | welcome123 | welcome123       |
-  | ESS      | Ravi M B           | Disabled | thomasuser  | welcome456 | welcome456       |
+  | Admin    | manda user         | Enabled  | doeadmin    | welcome123 | welcome123       |
+  | ESS      | joker john selvam  | Disabled | thomasuser  | welcome456 | welcome456       |
 
 @regression3
   Scenario: TC010 - Edit user details
@@ -55,7 +55,7 @@ Examples:
  | thomasuser | Admin        | Enabled   |
 
 @regression4
-Scenario: TC011 - Delete User and create new user with same username
+Scenario: TC011 - Delete User 
 When user click on Admin left tab
 When user enter User_Name in search box "<username>" and click on Search button
 Then the Entered User_Name is displayed on the screen 
@@ -81,5 +81,5 @@ Scenario: TC012 - Add duplicate username
     Then user is getting logged out successfully
     
     Examples:
-  | UserRole | EmployeeName      | status   | username  |  
-  | Admin    | Ravi M B          | Enabled  | Admin     |
+  | UserRole | EmployeeName          | status   | username   |  
+  | ESS      | Test Automation User  | Enabled  | doeadmin   |
