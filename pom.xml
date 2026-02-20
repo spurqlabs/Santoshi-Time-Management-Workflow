@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>Assignment_One_Playwright_Java</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+    <!-- Playwright Dependency -->
+     <!-- Playwright Dependency -->
+        <dependency>
+            <groupId>com.microsoft.playwright</groupId>
+            <artifactId>playwright</artifactId>
+            <version>1.40.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Cucumber Java -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.14.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Cucumber TestNG -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>7.14.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- TestNG -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.7.1</version>
+            <scope>test</scope>
+        </dependency>
+        
+        
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.14</version>
+        </dependency>
+        <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>2.0.9</version>
+</dependency>
+        
+        <dependency>
+    <groupId>com.googlecode.json-simple</groupId>
+    <artifactId>json-simple</artifactId>
+    <version>1.1.1</version>
+</dependency>
+
+    <dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20220924</version>
+</dependency>
+
+        <!-- Allure for Reporting -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber7-jvm</artifactId>
+            <version>2.25.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.cucumber</groupId>
+                    <artifactId>messages</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.25.0</version>
+        </dependency>
+
+        <!-- Explicit version for cucumber messages to avoid conflicts -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>messages</artifactId>
+            <version>22.0.0</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                 <configuration>
+        <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+        </suiteXmlFiles>
+    </configuration>
+            </plugin>
+
+            <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-checkstyle-plugin</artifactId>
+    <version>3.3.1</version>
+    <configuration>
+        <configLocation>google_checks.xml</configLocation>
+        <consoleOutput>true</consoleOutput>
+        <failsOnError>true</failsOnError>
+    </configuration>
+    <executions>
+        <execution>
+            <phase>verify</phase>
+            <goals>
+                <goal>checkstyle</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+
+
+<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.11</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+        </execution>
+        <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+                <goal>report</goal>
+            </goals>
+        </execution>
+        <execution>
+    <id>check</id>
+    <goals>
+        <goal>check</goal>
+    </goals>
+    <configuration>
+        <rules>
+            <rule>
+                <element>BUNDLE</element>
+                <limits>
+                    <limit>
+                        <counter>LINE</counter>
+                        <value>COVEREDRATIO</value>
+                        <minimum>0.70</minimum>
+                    </limit>
+                </limits>
+            </rule>
+        </rules>
+    </configuration>
+</execution>
+
+    </executions>
+</plugin>
+           
+
+
+        </plugins>
+    </build>
+
+    <properties>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <cucumber.filter.tags>@smoke or @regression or @sanity</cucumber.filter.tags>
+        
+    </properties>
+
+</project>
